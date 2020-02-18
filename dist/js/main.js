@@ -21,6 +21,22 @@ $(function () {
         $layout = $('body').data('lte.layout')
 
     });
+    $('[data-toggle="control-sidebar"]').on('expanded.controlsidebar', function () {
+        changeLayout("control-sidebar-open")
+    })
+    $('[data-toggle="control-sidebar"]').on('collapsed.controlsidebar', function () {
+        $('.control-sidebar').removeClass('control-sidebar-open')
+    })
+    function changeLayout(cls) {
+        $('body').toggleClass(cls)
+        $layout.fixSidebar()
+        if ($('body').hasClass('fixed') && cls == 'fixed') {
+            $pushMenu.expandOnHover()
+            $layout.activate()
+        }
+        $controlSidebar.fix()
+    }
+
     $('[data-toggle="tooltip"]').tooltip();
 
     $('#slgenes').multiselect({
@@ -4479,7 +4495,7 @@ RenderBubbleChart()
 function RenderBubbleChart() {
 
 
-    const diameter = 400, //max size of the bubbles
+    const diameter = 350, //max size of the bubbles
         color = d3.scale.category20b(); //color category
     let bubble = d3.layout.pack()
         .size([diameter, diameter])
@@ -4488,8 +4504,8 @@ function RenderBubbleChart() {
     let svg = d3.select("#bubble_cancer")
         .append("svg")
         .attr("id", "svgbubble")
-        .attr("width", "500px")
-        .attr("height", "500px")
+        .attr("width", "450px")
+        .attr("height", "450px")
 
 
     GLOBALDATA.nodes.forEach(function (d) {
