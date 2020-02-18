@@ -2,4 +2,4 @@
 ## Demo link
 https://alex-nguyen.github.io/Piacan/index.html
 ## Main layout
-![alt text](https://raw.githubusercontent.com/Alex-Nguyen/jeju/master/assets/images/JEJUARQRCODE.PNG)
+![alt text](https://github.com/Alex-Nguyen/Piacan/blob/master/Piacan.png?raw=true)
